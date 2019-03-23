@@ -31,7 +31,12 @@ public abstract class Doctor implements iDoctor{
         if (dob.matches("[0-9][0-9]/[0-9][0-9]/[0-9][0-9][0-9][0-9]")) {
             this.dob = dob;
         } else this.dob = "Unknown";
-        if (gender.equals('m')||gender.equals('f')) {
+        if (gender.equals('m')||gender.equals('f')||gender.equals('M')||gender.equals('F')) {
+            if (gender.equals('M')){
+                gender = 'm';
+            } else if (gender.equals('F')) {
+                gender = 'f';
+            }
             this.gender = gender;
         } else this.gender = 'u';
         this.address = address;
@@ -95,7 +100,9 @@ public abstract class Doctor implements iDoctor{
      * @param dob the dob
      */
     public void setDob(String dob) {
-        this.dob = dob;
+        if (dob.matches("[0-9][0-9]/[0-9][0-9]/[0-9][0-9][0-9][0-9]")) {
+            this.dob = dob;
+        }
     }
 
     /**
@@ -113,7 +120,14 @@ public abstract class Doctor implements iDoctor{
      * @param gender the gender
      */
     public void setGender(Character gender) {
-        this.gender = gender;
+        if (gender.equals('m')||gender.equals('f')||gender.equals('M')||gender.equals('F')) {
+            if (gender.equals('M')) {
+                gender = 'm';
+            } else if (gender.equals('F')) {
+                gender = 'f';
+            }
+            this.gender = gender;
+        }
     }
 
     /**
