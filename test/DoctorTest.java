@@ -5,8 +5,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
 
-import static org.junit.Assert.assertEquals;
 
 public class DoctorTest {
     Intern doctorOne, doctorTwo, doctorThree;
@@ -27,15 +28,15 @@ public class DoctorTest {
     }
 
     @Test
-    public void validDataInConstructorAccepted(){
+    public void validDataInConstructorAccepted() {
         //name on boundary 30 chars, valid genre, valid doctor length, valid Artist
         //Genre must be: Rock, Pop, Blues, Rap, Dance, Classical
         assertEquals("Bob bobert", doctorOne.getName());
         assertEquals("3325", doctorOne.getContactNumber());
-        assertEquals("Male", doctorOne.getFullGender());
+        assertEquals("Unknown", doctorOne.getFullGender());
         assertEquals("20/15/2222", doctorOne.getDob());
-        assertEquals("seaseme street",doctorOne.getAddress());
-        assertEquals(qualifications,doctorOne.getQualifications());
+        assertEquals("seaseme street", doctorOne.getAddress());
+        assertEquals(qualifications, doctorOne.getQualifications());
     }
 
     @Test
@@ -51,7 +52,7 @@ public class DoctorTest {
 
 
     @Test
-    public void setDoctorName(){
+    public void setDoctorName() {
         //space between words
         assertEquals("Bob bobert", doctorOne.getName());
 
@@ -92,6 +93,8 @@ public class DoctorTest {
         assertEquals("20/15/2222", doctorOne.getDob());
         doctorOne.setDob("2015/2222");     //one slash (
         assertEquals("20/15/2222", doctorOne.getDob());
+        doctorOne.setDob("AB/WA/EFAS");     //one slash (
+        assertEquals("20/15/2222", doctorOne.getDob());
     }
 
     @Test
@@ -100,11 +103,11 @@ public class DoctorTest {
 
         //valid values - genre must be: Rock, Pop, Blues, Rap, Dance, Classical
         doctorOne.setGender('F');
-        assertEquals("Female",  doctorOne.getFullGender());
+        assertEquals("Female", doctorOne.getFullGender());
         doctorOne.setGender('f');
-        assertEquals("Female",  doctorOne.getFullGender());
+        assertEquals("Female", doctorOne.getFullGender());
         doctorOne.setGender('M');
-        assertEquals("Male",  doctorOne.getFullGender());
+        assertEquals("Male", doctorOne.getFullGender());
         doctorOne.setGender('a');
         assertEquals("Male", doctorOne.getFullGender());
         doctorOne.setGender('m');
@@ -113,29 +116,14 @@ public class DoctorTest {
         assertEquals("Male", doctorOne.getFullGender());
     }
 
-//    @Test
-//    public void setArtist() {
-//        assertEquals("Artist Name as 30 characters!!", doctorOne.getArtist().getArtistName());
-//
-//        //set Artist with a value artist object
-//        doctorOne.setArtist(new Artist("New Artist", "newbie@artist.com", "23211"));
-//        assertEquals("New Artist", doctorOne.getArtist().getArtistName());
-//        assertEquals("newbie@artist.com", doctorOne.getArtist().getArtistEmail());
-//        assertEquals("23211", doctorOne.getArtist().getArtistPhone());
-//
-//        //attempt to set Artist with a null object
-//        doctorOne.setArtist(null);
-//        assertEquals("New Artist", doctorOne.getArtist().getArtistName());
-//        assertEquals("newbie@artist.com", doctorOne.getArtist().getArtistEmail());
-//        assertEquals("23211", doctorOne.getArtist().getArtistPhone());
-//    }
-//
-//    @Test
-//    public void toStringUsesAllFields() {
-//        assertThat(doctorOne.toString().contains("012345678901234567890123456789"), is(true));
-//        assertThat(doctorOne.toString().contains("ROCK"), is(true));
-//        assertThat(doctorOne.toString().contains("" + (int) (163 % 60)), is(true));
-//        assertThat(doctorOne.toString().contains("" + (int) (163 / 60)), is(true));
-//        assertThat(doctorOne.toString().contains("Artist Name as 30 characters!!"), is(true));
+
+    @Test
+    public void toStringUsesAllFields() {
+        assertThat(doctorOne.toString().contains("Bob"), is(true));
+        assertThat(doctorOne.toString().contains("3325"), is(true));
+        assertThat(doctorOne.toString().contains("Unknown"), is(true));
+        assertThat(doctorOne.toString().contains("20/15/2222"), is(true));
+        assertThat(doctorOne.toString().contains("seaseme street"), is(true));
+    }
 }
 
