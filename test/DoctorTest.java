@@ -29,8 +29,6 @@ public class DoctorTest {
 
     @Test
     public void validDataInConstructorAccepted() {
-        //name on boundary 30 chars, valid genre, valid doctor length, valid Artist
-        //Genre must be: Rock, Pop, Blues, Rap, Dance, Classical
         assertEquals("Bob bobert", doctorOne.getName());
         assertEquals("3325", doctorOne.getContactNumber());
         assertEquals("Unknown", doctorOne.getFullGender());

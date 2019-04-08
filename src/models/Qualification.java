@@ -9,7 +9,7 @@ public class Qualification {
     public Qualification(String degreeType, String degreeName, String collage, String conferringYear) {
 
         this.degreeType = degreeType;
-        if (degreeName.matches("[a-zA-Z]*")){
+        if (degreeName.matches("[a-zA-Z ]*")){
             this.degreeName = degreeName;
         } else this.degreeName = "Unknown";
         this.collage = collage;
@@ -31,7 +31,9 @@ public class Qualification {
     }
 
     public void setDegreeName(String degreeName) {
-        this.degreeName = degreeName;
+        if (degreeName.matches("[a-zA-Z ]*")){
+            this.degreeName = degreeName;
+        }
     }
 
     public String getCollage() {

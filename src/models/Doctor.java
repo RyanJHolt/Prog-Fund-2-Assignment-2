@@ -35,8 +35,6 @@ public abstract class Doctor implements iDoctor{
 
     public String viewContactDetails(){
         return "Name: " + name +
-                ", Dob: " + dob +
-                ", Gender " + getFullGender() +
                 ", Address: " + address +
                 ", Contact Number: " + contactNumber + "\n";
     }
@@ -102,11 +100,16 @@ public abstract class Doctor implements iDoctor{
     public void setContactNumber(String contactNumber) {
         if (contactNumber.matches("[0-9]+")) {
             this.contactNumber = contactNumber;
+
         }
     }
 
     public ArrayList<Qualification> getQualifications() {
         return qualifications;
+    }
+
+    public void addQualifications(Qualification qualification){
+        qualifications.add(qualification);
     }
 
     public void setQualifications(ArrayList<Qualification> qualifications) {

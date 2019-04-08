@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * The type Intern.
  */
-public class Intern extends Doctor implements iDoctor {
+public class Intern extends Doctor {
     /**
      * Instantiates a new Intern.
      *

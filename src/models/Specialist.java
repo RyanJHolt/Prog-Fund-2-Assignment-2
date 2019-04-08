@@ -6,7 +6,7 @@ import java.util.HashSet;
 /**
  * The type Specialist.
  */
-public class Specialist extends RegisteredDoctor implements iDoctor {
+public class Specialist extends RegisteredDoctor{
     private HashSet<String> specialist;
 
     /**
@@ -50,6 +50,9 @@ public class Specialist extends RegisteredDoctor implements iDoctor {
         this.specialist = specialist;
     }
 
+    public void addSpecialist(String Specialism){
+        specialist.add(Specialism);
+    }
 
     @Override
     public String toString() {

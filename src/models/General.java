@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * The type General.
  */
-public class General extends RegisteredDoctor implements iDoctor {
+public class General extends RegisteredDoctor {
 
     /**
      * Instantiates a new General.
